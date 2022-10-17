@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignIn">
+
+    <TextView
+        android:id="@+id/lbl_H"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sign Up Combatant"
+        android:textAlignment="center"
+        android:textSize="42sp" />
+
+    <ImageButton
+        android:id="@+id/ibtn_profile"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_above="@id/txtin_UsID"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:id="@+id/txtin_UsID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/txtin_UsPass"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:hint="User ID"
+        android:text=""
+        android:inputType="textEmailAddress" />
+
+    <EditText
+        android:id="@+id/txtin_UsPass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:hint="User Password"
+        android:text=""
+        android:inputType="textPassword" />
+
+    <EditText
+        android:id="@+id/txtin_UsAdh"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txtin_UsPass"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:hint="User Aadhar Number"
+        android:text=""
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/txtin_UsLoc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txtin_UsAdh"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:hint="User Address"
+        android:text=""
+        android:inputType="text" />
+
+    <Button
+        android:id="@+id/btn_SI"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/btn_ALI"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:text="Sign Up" />
+    <Button
+        android:id="@+id/btn_ALI"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:text="Already have an account? LOG IN"
+        android:onClick="click"/>
+</RelativeLayout>
