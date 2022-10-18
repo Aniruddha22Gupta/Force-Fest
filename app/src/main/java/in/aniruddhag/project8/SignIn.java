@@ -55,7 +55,6 @@ public class SignIn extends AppCompatActivity {
 
         fbDatabase = new FBDatabase();
         mAuth = FirebaseAuth.getInstance();
-        mUser = mAuth.getCurrentUser();
         mDatabase = FirebaseDatabase.getInstance();
         databaseReference = mDatabase.getReference();
 
@@ -140,21 +139,24 @@ public class SignIn extends AppCompatActivity {
                 setVal.setAadharNo(AadharNo);
                 setVal.setAddress(Address);
 
-                if (Patterns.EMAIL_ADDRESS.matcher(Username).matches()) {
+                if (Patterns.EMAIL_ADDRESS.matcher(Username).matches() && Password.length() == 8 && AadharNo.length() == 12) {
                     mAuth.createUserWithEmailAndPassword(Username, Password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
                                 Toast.makeText(SignIn.this, "Successfully Created an Account.", Toast.LENGTH_LONG).show();
+                                mUser = mAuth.getCurrentUser();
+                                assert mUser != null;
                                 DatabaseReference databasereference = databaseReference.child(mUser.getUid());
                                 databasereference.setValue(setVal);
                                 startActivity(new Intent(SignIn.this, LandingPage.class));
                             } else {
                                 Toast.makeText(SignIn.this, "Couldn't Successfully Create an Account. Error: " + task.getException(), Toast.LENGTH_LONG).show();
                             }
-
                         }
                     });
+                } else {
+                    Toast.makeText(SignIn.this, "Please check the inputs in the above fields", Toast.LENGTH_LONG).show();
                 }
             }
         });
